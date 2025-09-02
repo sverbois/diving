@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-B2ootaw-.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-CxL0S8W7.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-D9fedIX3.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-BTCkDNvf.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-DU3aDxX5.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-CLVRCuM9.ttf" as="font" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        var scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          var element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          var hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          var newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((entries) => {
+          setHeight();
+        });
+        resizeObserver.observe(obj.contentWindow.document.body);
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>rmv</title>
+    <script type="module" crossorigin src="./assets/index-BB71mG_d.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DryPQDfA.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.15.2%22%0Aapp%20%3D%20marimo.App(%0A%20%20%20%20width%3D%22medium%22%2C%0A%20%20%20%20layout_file%3D%22data%3Aapplication%2Fjson%3Bbase64%2CewogICJ0eXBlIjogImdyaWQiLAogICJkYXRhIjogewogICAgImNvbHVtbnMiOiAyNCwKICAgICJyb3dIZWlnaHQiOiAyMCwKICAgICJtYXhXaWR0aCI6IDEyMDAsCiAgICAiYm9yZGVyZWQiOiBmYWxzZSwKICAgICJjZWxscyI6IFsKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IFsKICAgICAgICAgIDAsCiAgICAgICAgICAwLAogICAgICAgICAgMTIsCiAgICAgICAgICAyNQogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IG51bGwKICAgICAgfSwKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IG51bGwKICAgICAgfSwKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IG51bGwKICAgICAgfSwKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IFsKICAgICAgICAgIDEzLAogICAgICAgICAgMCwKICAgICAgICAgIDEwLAogICAgICAgICAgMTcKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicG9zaXRpb24iOiBbCiAgICAgICAgICAxNSwKICAgICAgICAgIDE5LAogICAgICAgICAgNiwKICAgICAgICAgIDMKICAgICAgICBdCiAgICAgIH0KICAgIF0KICB9Cn0%3D%22%2C%0A)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20r%22%22%22%0A%20%20%20%20%23%20D%C3%A9finition%20de%20RMV%0A%0A%20%20%20%20%23%23%20D%C3%A9finition%0A%0A%20%20%20%20Le%20**RMV**%20(Respiratory%20Minute%20Volume%20%2F%20Volume%20de%20gaz%20respir%C3%A9%20par%20minute)%20est%20la%20quantit%C3%A9%20d'air%20ou%20de%20gaz%20respir%C3%A9%20par%20un%20plongeur%20en%20une%20minute.%20Il%20est%20exprim%C3%A9%20en%20litres%20par%20minute%20(L%2Fmin).%0A%0A%20%20%20%20%23%23%20Formule%0A%0A%20%20%20%20%24%24%0A%20%20%20%20%5Ctext%7BRMV%20(L%2Fmin)%7D%20%3D%20%5Cfrac%7B%20%5Ctext%7BVolume%20air%20consomm%C3%A9%20(L)%7D%20%7D%7B%20%5Ctext%7BDur%C3%A9e%20plong%C3%A9e%20(min)%7D%20%5Ctimes%20%5Ctext%7BProfondeur%20moyenne%20(bar)%7D%7D%0A%20%20%20%20%24%24%0A%0A%20%20%20%20o%C3%B9%0A%0A%20%20%20%20-%20%24%5Ctext%7BVolume%20air%20consomm%C3%A9%20(L)%7D%20%3D%20%20%5CBig(%5Ctext%7BPression%20d%C3%A9but%20(bar)%7D%20-%20%5Ctext%7BPression%20fin%20(bar)%7D%5CBig)%20%5Ctimes%20%20%5Ctext%7BVolume%20bouteille%20(L)%7D%24%0A%20%20%20%20-%20%24%5Ctext%7BProfondeur%20moyenne%20(bar)%7D%20%3D%20%5Ctext%7BProfondeur%20moyenne%20(m)%7D%20%2F%2010%20%2B%201%24%0A%20%20%20%20%22%22%22%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20return%20(mo%2C)%0A%0A%0A%40app.function%0Adef%20compute_rmv(cylinder%2C%20start%2C%20end%2C%20time%2C%20depth)%3A%0A%20%20%20%20if%20not%20(cylinder%20and%20start%20and%20end%20and%20time%20and%20depth)%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20pressure%20%3D%20depth%2F10%20%2B1%20%0A%20%20%20%20return%20(cylinder%20*%20(start%20-%20end))%20%2F%20(time%20*%20pressure)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20%23%20INPUTS%0A%20%20%20%20cylinder_sizes%20%3D%20%5B%2210%20L%22%2C%20%2212%20L%22%2C%20%2215%20L%22%2C%20%2216%20L%22%2C%20%2220%20L%22%2C%20%2224%20L%22%5D%0A%20%20%20%20cylinder_volume%20%3D%20mo.ui.radio(%0A%20%20%20%20%20%20%20%20options%3Dcylinder_sizes%2C%20inline%3DTrue%2C%0A%20%20%20%20%20%20%20%20label%3D%22Volume%20bouteille%20(en%20litres)%20%3A%20%22%2C%0A%20%20%20%20%20%20%20%20value%3D%2215%20L%22)%0A%20%20%20%20start_pressure%20%3D%20mo.ui.number(label%3D%22Pression%20d%C3%A9but%20plong%C3%A9e%20(en%20bars)%20%3A%20%22%2C%20value%3D200)%0A%20%20%20%20end_pressure%20%3D%20mo.ui.number(label%3D%22Pression%20fin%20plong%C3%A9e%20(en%20bars)%20%3A%20%22%2C%20value%3D50)%0A%20%20%20%20dive_time%20%3D%20mo.ui.number(label%3D%22Temps%20plong%C3%A9e%20(en%20minutes)%20%3A%20%22%2Cvalue%3D45)%0A%20%20%20%20mean_depth%20%3D%20mo.ui.number(label%3D%22Profondeur%20moyenne%20(en%20m%C3%A8tres)%20%3A%20%22%2Cvalue%3D15.5)%0A%20%20%20%20return%20cylinder_volume%2C%20dive_time%2C%20end_pressure%2C%20mean_depth%2C%20start_pressure%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20cylinder_volume%2C%0A%20%20%20%20dive_time%2C%0A%20%20%20%20end_pressure%2C%0A%20%20%20%20mean_depth%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20start_pressure%2C%0A)%3A%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%20Calculer%20son%20RMV%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20cylinder_volume%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.hstack(%5Bstart_pressure%2C%20end_pressure%5D%2Cjustify%3D%22start%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.hstack(%5Bdive_time%2C%20mean_depth%5D%2Cjustify%3D%22start%22)%2C%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20align%3D%22stretch%22%2C%0A%20%20%20%20%20%20%20%20gap%3D1%2C%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20cylinder_volume%2C%0A%20%20%20%20dive_time%2C%0A%20%20%20%20end_pressure%2C%0A%20%20%20%20mean_depth%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20start_pressure%2C%0A)%3A%0A%20%20%20%20%23%20OUTPUTS%0A%0A%20%20%20%20cylinder_value%20%3D%20int(cylinder_volume.value%5B%3A2%5D)%0A%20%20%20%20rmv%20%3D%20compute_rmv(%0A%20%20%20%20%20%20%20%20cylinder_value%2C%0A%20%20%20%20%20%20%20%20start_pressure.value%2C%0A%20%20%20%20%20%20%20%20end_pressure.value%2C%0A%20%20%20%20%20%20%20%20dive_time.value%2C%0A%20%20%20%20%20%20%20%20mean_depth.value)%0A%0A%20%20%20%20mo.md(f%22%22%22%23%23%20RMV%20%3D%20%7Brmv%3A.2f%7D%20L%2Fmin%22%22%22%20if%20rmv%20else%20%22%22)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a portal for the data editor to render in -->
+    <div id="portal" data-testid="glide-portal" style="position: fixed; left: 0; top: 0; z-index: 9999"></div>
+    <script data-marimo="true">
+      window.__MARIMO_MOUNT_CONFIG__ = {
+            "filename": "notebook.py",
+            "mode": "read",
+            "version": "0.15.2",
+            "serverToken": "unused",
+            "config": {"ai": {"models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "copilot": false}, "display": {"cell_output": "above", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": false, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": true}}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": true, "auto_reload": "off", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"layout_file": "data:application/json;base64,ewogICJ0eXBlIjogImdyaWQiLAogICJkYXRhIjogewogICAgImNvbHVtbnMiOiAyNCwKICAgICJyb3dIZWlnaHQiOiAyMCwKICAgICJtYXhXaWR0aCI6IDEyMDAsCiAgICAiYm9yZGVyZWQiOiBmYWxzZSwKICAgICJjZWxscyI6IFsKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IFsKICAgICAgICAgIDAsCiAgICAgICAgICAwLAogICAgICAgICAgMTIsCiAgICAgICAgICAyNQogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IG51bGwKICAgICAgfSwKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IG51bGwKICAgICAgfSwKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IG51bGwKICAgICAgfSwKICAgICAgewogICAgICAgICJwb3NpdGlvbiI6IFsKICAgICAgICAgIDEzLAogICAgICAgICAgMCwKICAgICAgICAgIDEwLAogICAgICAgICAgMTcKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicG9zaXRpb24iOiBbCiAgICAgICAgICAxNSwKICAgICAgICAgIDE5LAogICAgICAgICAgNiwKICAgICAgICAgIDMKICAgICAgICBdCiAgICAgIH0KICAgIF0KICB9Cn0=", "sql_output": "auto", "width": "medium"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        };
+    </script>
+  </body>
+</html>
